@@ -11,7 +11,7 @@ Follow the following command:
 2. `chmod +x install_serxng_fedora_42_plus.sh`
 3. `./install_serxng_fedora_42_plus.sh`
 
-> !Note: If you encounter some errors please open an issue, since this is still work in progress. Also you can skip steps by directly copying the cmds in the `.sh` file, if you are an advance user. 
+> Note: If you encounter some errors please open an issue, since this is still work in progress. Also you can skip steps by directly copying the cmds in the `.sh` file, if you are an advance user. 
 
 ## Roadmap
 - [Planned] Create shell script installs for different Linux distros.
