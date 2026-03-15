@@ -9,4 +9,4 @@ Install SearXNG a metasearch engine locally on your host system under *2-mins* b
 Please read the [contributing guide](https://github.com/MagicalDemon/SearXNG-Podman-Scripts/blob/main/CONTRIBUTING.md).
 
 ## License
-This software is licensed under the GNU Affero General Public License version 3 (AGPLv3). See the [LICENSE](https://github.com/MagicalDemon/SearXNG-Podman-Scripts/blob/main/LICENSE) file for details.
+This software is licensed under the GNU GENERAL PUBLIC LICENSE VERSION 3 (GPLv3). See the [LICENSE](https://github.com/MagicalDemon/SearXNG-Podman-Scripts/blob/main/LICENSE) file for details.
