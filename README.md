@@ -3,18 +3,27 @@ Install SearXNG, a metasearch engine, locally on your host system in under *2-mi
 
 ## Scripts Supported For
 - Fedora (42+): [Download Script](https://raw.githubusercontent.com/MagicalDemon/SearXNG-Podman-Scripts/refs/heads/main/scripts/install_serxng_fedora_42_plus.sh)
-- ... (still coming)
+- ... (more are still being worked)
 
 ## How to run?
 Follow the following command:
-1. `cd ~/Downloads` (Move to your folder where the _script_ is downloaded)
-2. `chmod +x install_serxng_fedora_42_plus.sh`
-3. `./install_serxng_fedora_42_plus.sh`
+```shell
+cd ~/Downloads
+chmod +x install_serxng_fedora_42_plus.sh
+./install_serxng_fedora_42_plus.sh
+```
 
-> Note: If you encounter some errors please open an issue, since this is still work in progress. Also you can skip steps by directly copying the cmds in the `.sh` file, if you are an advance user. 
+> [!NOTE]
+> If you encounter some errors please open an issue, since this is still work in progress. Also you can skip steps by directly copying the cmds in the `.sh` file or editing and using the `.yml` compose file, if you are an advance user. 
 
 ## Roadmap
-- [Planned] Create shell script installs for different Linux distros.
+- [Planned] Create shell script podman installs for different Linux distros.
+    - 🛠️ Fedora
+    - 📋 Arch Linux
+    - 📋 Linux Mint
+    - 📋 Ubuntu
+    - 📋 Manjaro
+    - 📋 Pop!_OS
 - [Planned] Develop a unified shell script with menu options to specify their Linux distros and select the SearXNG version.
 
 ## Contributing
