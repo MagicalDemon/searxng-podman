@@ -29,35 +29,41 @@ curl -o ~/searxng/settings/settings.yml https://raw.githubusercontent.com/searxn
 sed -i 's/secret_key: "ultrasecretkey"  # Is overwritten by ${SEARXNG_SECRET}/# &/' ~/searxng/settings/settings.yml
 
 # Run the SearXNG container with correct port mapping
-podman run -d --name searxng -p 8888:8080 -v ~/Documents/searxng/settings/settings.yml:/etc/searxng/settings.yml:Z docker.io/searxng/searxng:latest
+podman run -d --name searxng -p 8888:8080 -v ~/searxng/settings/settings.yml:/etc/searxng/settings.yml:Z docker.io/searxng/searxng:latest
 
 # Verify the container is running
 podman ps
 
+# Create Quadlets file for searxng
+mkdir -p ~/.config/systemd/user 
+
 # Create a systemd service file for the SearXNG container
-sudo tee /etc/systemd/system/searxng.service > /dev/null <<EOF
+sudo tee ~/.config/containers/systemd/searxng.container > /dev/null <<'EOF'
 [Unit]
 Description=SearXNG container
-After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+Image=docker.io/searxng/searxng:latest
+ContainerName=searxng
+PublishPort=8888:8080
+Volume=%h/searxng/settings/settings.yml:/etc/searxng/settings.yml:Z
 
 [Service]
-ExecStartPre=/bin/sleep 30
 Restart=always
-ExecStart=/usr/bin/podman start -a searxng
-ExecStop=/usr/bin/podman stop -t 2 searxng
+RestartSec=10
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 EOF
 
+
 # Reload systemd to recognize the new service
-sudo systemctl daemon-reload
+sudo systemctl --user daemon-reload
 
-# Enable the SearXNG service to start on boot
-sudo systemctl enable searxng
-
-# Start the SearXNG service
-sudo systemctl start searxng
+# Starting the service will enable the SearXNG service to start on boot
+sudo systemctl --user start degoog.service
 
 # Fetch the server's hostname
 hostname=$(hostname)
